@@ -6,7 +6,8 @@
 	$DB->selectValue($table,$field,$where,$debug=false);
 
 	$sql='SELECT * FROM tbl';
-	echo $DB->getHTML($sql, '', '',);
+	$styleTable='border: 1px black; align:center;  padding: 15px; text-align: center;';
+	echo $DB->getHTML($sql, '', '',$styleTable);
 ?>
 
 
