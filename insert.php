@@ -1,13 +1,13 @@
 <?php
-
 require_once('connection.php');
-	$table='tbl';
-	$DB->insert($table,$_POST);	
-	
-	$last_insert_id=$DB->getLastInsertId();
-	echo "New record created successfully. Last inserted ID is: " . $last_insert_id;
+$table='tbl';
+if(isset($_POST['submit'])){
+	unset($_POST['submit']);
+	$DB->insert($table,$_POST);
+	$_POST = array();
+	header('location:select.php');
+}		
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +17,7 @@ require_once('connection.php');
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<title></title>
 </head>
-<body class="bg-light">
+<body>
 	<nav class="navbar">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="selectvalue">View</a>
@@ -27,7 +27,7 @@ require_once('connection.php');
 		<div class="row">
 			<div class="col-md-6"></div>
 			<div class="col-md-6">
-				<form action="#" method="post">
+				<form action="insert.php" method="post">
 					<div class="container-fluid p-5">
 						<div class="p-5 border bg-light">
 							<h1 class="text-center">Form</h1>
@@ -51,7 +51,7 @@ require_once('connection.php');
 							</div><br>
 							<div class="row">
 								<div class="col-6">
-									<input type="submit" id="submit" value="submit" class="btn btn-primary">
+									<input type="submit" name="submit" id="submit" value="submit" class="btn btn-primary">
 								</div>
 							</div>
 						</div>
@@ -60,5 +60,10 @@ require_once('connection.php');
 			</div>
 		</div>
 	</div>
+	<script>
+		window.onload = function() {
+			history.replaceState("", "", "insert.php");
+		}
+	</script>
 </body>
 </html>
