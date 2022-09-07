@@ -6,7 +6,16 @@ if(isset($_POST['submit'])){
 	$DB->insert($table,$_POST);
 	$_POST = array();
 	header('location:select.php');
-}		
+}	
+
+if(isset($_GET['updateid'])){
+	$value='*';
+	$where ['id']=$_GET['updateid'];
+	$myrecord=$DB->selectRow($table,$value,$where);
+	echo "<pre>";
+	print_r ($myrecord);
+	echo "</pre>";
+}	
 ?>
 <!DOCTYPE html>
 <html>

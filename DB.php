@@ -883,10 +883,6 @@ class DB
         // Get the records
         $this->query($sql, $placeholders);
         $records = $this->fetchAll(\PDO::FETCH_ASSOC);
-        echo "<pre>";
-        print_r ($records);
-        echo "</pre>";
-        exit();
         // If there was no error...
         if (is_array($records)) {
             // If records were returned...
@@ -912,8 +908,9 @@ class DB
                     foreach ($row as $value) {
                         $html .= "\t\t<td style=\"$td\">" . htmlspecialchars($value) . "</td>\n";
                     }
-                    $html .="\t\t<td><a href='update.php'>Edit</a></td>";
-                    $html .="\t\t<td><a href='delete.php'>Delete</a></td>";
+                    $id= $row['id'];
+                    $html .="\t\t<td><a href='insert.php?updateid=$id'>Edit</a></td>";
+                    $html .="\t\t<td><a href='delete.php?deleteid=$id'>Delete</a></td>";
                     $html .= "\t</tr>\n";
                 }
                 // Close the table

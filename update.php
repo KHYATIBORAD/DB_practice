@@ -1,13 +1,8 @@
 <?php
-
-	require_once('connection.php');
-
-	$table='tbl';
-	$values=array(
-		'name' => 'kridha',
-		'surname' => 'borad'
-	);
-	$where['id'] = '30';
-
-	$DB->update($table,$values,$where,$debug=true);   
+	require_once("connection.php");
+	if(isset($_POST['updateid'])){
+		$table='tbl';
+		$where['id']=$_POST['updateid'];
+		$DB->update($table,$_POST,$where);
+	}   
 ?>
