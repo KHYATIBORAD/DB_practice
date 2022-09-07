@@ -1,10 +1,11 @@
 <?php
 
 require_once('connection.php');
-if(isset($_POST['submit'])){
 	$table='tbl';
 	$DB->insert($table,$_POST);	
-}
+	
+	$last_insert_id=$DB->getLastInsertId();
+	echo "New record created successfully. Last inserted ID is: " . $last_insert_id;
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ if(isset($_POST['submit'])){
 		<div class="row">
 			<div class="col-md-6"></div>
 			<div class="col-md-6">
-				<form action="#" method="POST>
+				<form action="#" method="post">
 					<div class="container-fluid p-5">
 						<div class="p-5 border bg-light">
 							<h1 class="text-center">Form</h1>
@@ -50,7 +51,7 @@ if(isset($_POST['submit'])){
 							</div><br>
 							<div class="row">
 								<div class="col-6">
-									<button name="submit" class="btn btn-primary" value="submit">Submit</button>
+									<input type="submit" id="submit" value="submit" class="btn btn-primary">
 								</div>
 							</div>
 						</div>
