@@ -656,20 +656,17 @@ class DB
 
         // Create the initial SQL
         $sql = 'UPDATE ' . trim($table) . ' SET ';
-
+        
         // Create SQL SET values
         $output = array();
         foreach ($values as $key => $value) {
             $output[] = $key . ' = :' . $key;
         }
-
         // Concatenate the array values
         $sql .= implode(', ', $output);
-
         // Create the SQL WHERE clause
         $where_array = $this->whereClause($where);
         $sql .= $where_array['sql'];
-
         // Execute the query
         return $this->execute(
             $sql,

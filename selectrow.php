@@ -3,5 +3,5 @@
 	$table='tbl';
 	$values='*';
 	$where['id']='30';
-	$DB->selectRow($table,$values,$where,$debug=true);
+	$DB->selectRow($table,$values,$where);
 ?>
