@@ -18,9 +18,9 @@ if(isset($_POST['update'])){
 	header('location:selectvalue.php');
 }	
 if(isset($_GET['msg'])){
-	$last_insert_id = $DB->getLastInsertId();
+	//$last_insert_id=$DB->getLastInsertId();
 	echo "<div class='alert alert-dark' role='alert'>
-	New record created successfully. Last inserted ID is:".$last_insert_id."
+	New record created successfully.
 	</div>";
 }
 ?>

@@ -1,25 +1,15 @@
-<!-- $html .= "\t\t<td><a href='#'>Edit<a></td>";
-$html .= "\t\t<td><a href='#'>Delete<a></td>"; -->
-
 <?php
-$array = array (
-		'websites' => array (
-				'Search' => 'Google',
-				'Social' => 'Facebook',
-				'News' => 'NY Times' 
-		),
-		'friends' => array (
-				'Chris',
-				'Jim',
-				'Lynn',
-				'Jeff',
-				'Joanna' 
-		) 
+$index2 = array (
+		'How to Eat Apples',
+		'Surfing Safely in a Wave Pool',
+		'The Best Foods For Breakfast',
+		'How to Eat Apples',
+		'25 tips to blogging nirvana',
+		'The Best Egg Nogg Recipe for the Holidays',
+		'Arrays with Style',
+		'PHP in the Enterprise',
+		'Douglas Crockford declares PHP his favorite language' 
 );
- 
-$merged = array_merge ( $array ['websites'], $array ['friends'] );
-
-$merged = array_values( $merged ); //get the values
- 
-print_r ( $merged );
-?>
+$found = array_search ( 'PHP in the Enterprise', $index2 );  //  (needle,haystack)
+print_r ( $found ); // 7
+?>  

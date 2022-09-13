@@ -1,7 +1,8 @@
 <?php 
 	require_once('connection.php');
-	$table='tbl';
+	$table='student';
 	$values='*';
-	$where['id']='30';
-	$DB->selectRow($table,$values,$where);
+	// $DB->select($table);	
+	$sql="SELECT * FROM student";
+	echo $DB->getHTML($sql);
 ?>
